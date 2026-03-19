@@ -47,6 +47,7 @@ Key design goals included:
 
 ## Color Palette
 ![Color Palette](Images/Web/ColorPalette.png)
+
 The interface uses **two primary colors**:
 
 - Purple
@@ -90,6 +91,7 @@ Elements include:
 ## Product Cards
 
 ![Products](Images/Web/Products.png)
+
 Reusable product card components display:
 
 - Product image
@@ -99,6 +101,7 @@ Reusable product card components display:
 - Add to cart button
 
 ![Discounts](Images/Web/Discount.png)
+
 Cards are designed for scalability and consistency across product sections.
 
 ---
