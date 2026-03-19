@@ -1,6 +1,6 @@
 # Valroyal E-Commerce UI Design
 
-[![Hero](Images/Web/Hero.png)
+![Hero](Images/Web/Hero.png)
 
 Valroyal is a modern beauty e-commerce interface designed in Figma. The project focuses on a clean visual identity, a minimal color system, and a component-based layout optimized for product browsing and purchasing.
 
@@ -20,7 +20,8 @@ The following elements were planned before building the layout:
 - Product card structure
 - Button styles and interaction states
 - Typography hierarchy
-[![Text](Images/Web/Text.png)
+
+![Text](Images/Web/Text.png)
 
 This preparation helped maintain a consistent visual language across the entire interface.
 
@@ -45,7 +46,7 @@ Key design goals included:
 # Design System
 
 ## Color Palette
-[![Color Palette](Images/Web/ColorPalette.png)
+![Color Palette](Images/Web/ColorPalette.png)
 The interface uses **two primary colors**:
 
 - Purple
