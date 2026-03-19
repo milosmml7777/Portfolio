@@ -89,7 +89,7 @@ Elements include:
 
 ## Product Cards
 
-[![Products](Images/Web/Products.png)
+![Products](Images/Web/Products.png)
 Reusable product card components display:
 
 - Product image
@@ -98,7 +98,7 @@ Reusable product card components display:
 - Price
 - Add to cart button
 
-[![Discounts](Images/Web/Discount.png)
+![Discounts](Images/Web/Discount.png)
 Cards are designed for scalability and consistency across product sections.
 
 ---
@@ -125,7 +125,7 @@ The footer includes typical e-commerce functionality:
 - Social media links
 - Newsletter subscription
 
-[![Footer](Images/Web/Footer.png)
+![Footer](Images/Web/Footer.png)
 
 ---
 
@@ -159,7 +159,7 @@ Supporting colors include:
 - Soft shadows for depth
 - White product surfaces to keep the focus on products
 
-[![Styles](Images/Web/Styles.png)
+![Styles](Images/Web/Styles.png)
 ---
 # Tools Used
 
