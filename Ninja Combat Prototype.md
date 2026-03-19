@@ -1,4 +1,4 @@
-# **Ninja Combat Prototype**
+ **Ninja Combat Prototype**
 
 A fast-paced 2D ninja combat prototype built in Unity focused on responsive controls, fluid combo combat, and performance-optimized gameplay systems. The project emphasizes precise combat feedback, enemy behavior variety, and custom visual effects while maintaining smooth performance through deliberate system architecture and optimization strategies.
 
