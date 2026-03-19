@@ -1,6 +1,6 @@
 # Valroyal E-Commerce UI Design
 
-[![Hero](Images/web/Hero.png)
+[![Hero](Images/Web/Hero.png)
 
 Valroyal is a modern beauty e-commerce interface designed in Figma. The project focuses on a clean visual identity, a minimal color system, and a component-based layout optimized for product browsing and purchasing.
 
@@ -20,7 +20,7 @@ The following elements were planned before building the layout:
 - Product card structure
 - Button styles and interaction states
 - Typography hierarchy
-[![Text](Images/web/Text.png)
+[![Text](Images/Web/Text.png)
 
 This preparation helped maintain a consistent visual language across the entire interface.
 
@@ -88,7 +88,7 @@ Elements include:
 
 ## Product Cards
 
-[![Color Palette](Products.png)
+[![Products](Images/Web/Products.png)
 Reusable product card components display:
 
 - Product image
@@ -97,7 +97,7 @@ Reusable product card components display:
 - Price
 - Add to cart button
 
-[![Color Palette](Images/Web/Discount.png)
+[![Discounts](Images/Web/Discount.png)
 Cards are designed for scalability and consistency across product sections.
 
 ---
@@ -124,7 +124,7 @@ The footer includes typical e-commerce functionality:
 - Social media links
 - Newsletter subscription
 
-![[Pasted image 20260319004819.png]]
+[![Footer](Images/Web/Footer.png)
 
 ---
 
@@ -158,7 +158,7 @@ Supporting colors include:
 - Soft shadows for depth
 - White product surfaces to keep the focus on products
 
-![[Pasted image 20260319004915.png]]
+[![Styles](Images/Web/Styles.png)
 ---
 # Tools Used
 
@@ -190,6 +190,7 @@ This project demonstrates:
 # Fisherman Lane Runner - Browser Game
 
 Fisherman Lane Runner is a browser-based arcade game built using HTML, CSS, and JavaScript with the Canvas API. The player controls a fisherman moving between lanes to collect rewards while avoiding obstacles. The project focuses on implementing core game programming concepts such as rendering systems, collision detection, particle effects, and asset management.
+
 
 ![[Pasted image 20260319010603.png]]
 
