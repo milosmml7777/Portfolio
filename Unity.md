@@ -58,21 +58,13 @@ Created multiple enemy archetypes with unique combat behaviors, including:
 - Elite enemies with advanced attack patterns and projectile behavior
 - AI decision logic determining whether enemies engage directly or maintain distance
 
-<iframe width="560" height="315" 
-src="https://youtu.be/8LME_ft6VYs?t=1"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen></iframe>
+[![Watch Gameplay](Images/Ninja/ninjaVariant.png)](https://www.youtube.com/watch?v=8LME_ft6VYs&t=1s)
 # Highlights
 ### Boss Encounters
 
 Boss enemies feature unique movesets and combat patterns, providing more complex encounters compared to regular enemies.
 
-<iframe width="560" height="315" 
-src="https://youtu.be/5mba21l6NqM?t=18"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen></iframe>
+[![Watch Gameplay](Images/Ninja/ninjaElite.png)](https://youtu.be/5mba21l6NqM?t=12)
 ### Performance Optimization
 
 Several performance techniques were implemented to maintain smooth gameplay:
@@ -96,11 +88,7 @@ Several performance techniques were implemented to maintain smooth gameplay:
 - Dynamic lighting effects including lanterns and fireplaces with variable intensity and size
 - Parallax background system creating visual depth
 
-<iframe width="560" height="315" 
-src="https://youtu.be/VLfgaBXhuSA?t=2"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen></iframe>
+[![Watch Gameplay](Images/Ninja/ninjaShrine.png)](https://youtu.be/qmVGOYmdafA?t=5)
 
 ---
 
@@ -137,11 +125,7 @@ allowfullscreen></iframe>
 
 A casual physics-driven sheep game built in Unity featuring interactive gameplay mechanics, shader-based wool shaving, and live-service progression systems. The project combines physics interactions, backend services, and engagement mechanics such as breeding mutations, daily rewards, and timed gameplay events.
 
-<iframe width="560" height="315" 
-src="https://www.youtube.com/watch?v=A9bZPC59eXE"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen></iframe>
+[![Watch Gameplay](Images/Sheep/sheepO.png)](https://www.youtube.com/watch?v=A9bZPC59eXE)
 ## Highlights
 
 - Physics-based sheep interaction and throwing mechanics
@@ -189,13 +173,7 @@ A breeding system generates sheep with randomized **colors and stat variations**
 
 A custom cutout shader enables a shaving mechanic where wool can be removed to reveal the underlying sheep model. This was implemented using Shader Graph and integrated directly into gameplay interactions.
 
-<iframe width="560" height="315" 
-src="https://youtu.be/gsuGNWpny6k"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen></iframe>
-
-
+[![Watch Gameplay](Images/Sheep/sheepShave.png)](https://www.youtube.com/watch?v=gsuGNWpny6k)
 ### Backend & Player Systems
 
 Implemented backend services using **PlayFab**, including:
