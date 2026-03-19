@@ -2,11 +2,7 @@
 
 A fast-paced 2D ninja combat prototype built in Unity focused on responsive controls, fluid combo combat, and performance-optimized gameplay systems. The project emphasizes precise combat feedback, enemy behavior variety, and custom visual effects while maintaining smooth performance through deliberate system architecture and optimization strategies.
 
-<iframe width="560" height="315" 
-src="https://youtu.be/qmVGOYmdafA?t=5"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen></iframe>
+[![Watch Gameplay](https://img.youtube.com/vi/qmVGOYmdafA/maxresdefault.jpg)](https://youtu.be/qmVGOYmdafA?t=5)
 # Highlights
 
 - Responsive combat system with high combo potential

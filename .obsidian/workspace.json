@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Web Dev.md",
+                "file": "Ninja Combat Prototype.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Web Dev"
+              "title": "Ninja Combat Prototype"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Web Dev.md",
+                "file": "Ninja Combat Prototype.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Web Dev"
+              "title": "Backlinks for Ninja Combat Prototype"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Web Dev.md",
+                "file": "Ninja Combat Prototype.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Web Dev"
+              "title": "Outgoing links from Ninja Combat Prototype"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Web Dev.md",
+                "file": "Ninja Combat Prototype.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Web Dev"
+              "title": "Outline of Ninja Combat Prototype"
             }
           }
         ]
@@ -185,10 +185,10 @@
   },
   "active": "ff5679953506eccf",
   "lastOpenFiles": [
-    "Unity.md",
-    "README.md",
     "METi GO.md",
     "Ninja Combat Prototype.md",
+    "README.md",
+    "Unity.md",
     "Web Dev.md",
     "Playable/Fisherman/Source Folder/win.wav",
     "Playable/Fisherman/Source Folder/win.png",
