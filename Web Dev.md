@@ -195,6 +195,7 @@ This project demonstrates:
 
 Fisherman Lane Runner is a browser-based arcade game built using HTML, CSS, and JavaScript with the Canvas API. The player controls a fisherman moving between lanes to collect rewards while avoiding obstacles. The project focuses on implementing core game programming concepts such as rendering systems, collision detection, particle effects, and asset management.
 
+**PLAY:** ![HERE](Playable/Fisherman/Game.html)
 
 ![](Images/Web/FishGameplay.png)
 
