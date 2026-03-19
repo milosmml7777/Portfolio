@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Unity.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -185,9 +185,13 @@
   },
   "active": "ff5679953506eccf",
   "lastOpenFiles": [
-    "Ninja Combat Prototype.md",
+    "Images/METiGO/METiSkin.png",
+    "Images/METiGO/METiFly.png",
+    "Images/METiGO",
+    "Images/METiGO/METiO.png",
     "README.md",
     "Unity.md",
+    "Ninja Combat Prototype.md",
     "METi GO.md",
     "Images/Sheep/sheepShave.png",
     "Images/Sheep/sheepO.png",
@@ -206,12 +210,9 @@
     "Playable/Fisherman/Source Folder/win.png",
     "Playable/Fisherman/Source Folder/movement.wav",
     "Playable/Fisherman/Source Folder/lose.wav",
-    "Playable/Fisherman/Source Folder/lose.png",
-    "Playable/Fisherman/Source Folder/fishermanhit.png",
     "Playable/Fisherman/Source Folder/diamond.wav",
     "Playable/Fisherman/Source Folder/deadfish.wav",
     "Playable/Fisherman/Source Folder/coin.wav",
-    "Playable/Fisherman/Source Folder/background.wav",
-    "Playable/Fisherman/win.wav"
+    "Playable/Fisherman/Source Folder/background.wav"
   ]
 }

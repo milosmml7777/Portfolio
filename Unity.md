@@ -211,12 +211,7 @@ Integrated in-game advertisements into the gameplay loop.
 
 METi GO is an endless runner built in Unity where players guide METi through a procedurally varied city while avoiding obstacles, collecting coins, and unlocking cosmetics. The game features platform leaderboards, seasonal content, achievement-based progression, and multiple gameplay systems designed to maintain replayability.
 
-<iframe width="560" height="315" 
-src="https://www.youtube.com/watch?v=5BqLuG9rP6Q"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen></iframe>
-
+[![Watch Gameplay](Images/METiGO/METiO.png)]((https://www.youtube.com/watch?v=5BqLuG9rP6Q)
 ## Highlights
 
 - Endless runner gameplay with obstacle avoidance and coin collection
@@ -278,11 +273,7 @@ Seasonal events introduce limited-time cosmetics and environmental changes inclu
 
 During a run, players may encounter a mini-game where three doors appear. The correct door is indicated at the top of the screen, and players must react quickly to choose the correct path.
 
-<iframe width="560" height="315" 
-src="https://youtu.be/zKx95wicUMA?t=187"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen></iframe>
+[![Watch Gameplay](Images/METiGO/METiFly.png)](https://youtu.be/zKx95wicUMA?t=187)
 ### Power-Up System
 
 Multiple gameplay power-ups can be triggered during runs:
@@ -309,11 +300,7 @@ The city environment features randomized layout variations during runs to mainta
 - Seasonal visual transitions including winter environments
 - Mars-themed skybox with a red sky reflecting METi’s origin
 
-<iframe width="560" height="315" 
-src="https://youtu.be/-DY3GA-T9Xc?t=100"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen></iframe>
+[![Watch Gameplay](Images/METiGO/METiSkin.png)](https://www.youtube.com/watch?v=-DY3GA-T9Xc&t=100s)
 
 ---
 
@@ -338,12 +325,7 @@ allowfullscreen></iframe>
 
 Sarma Clicker is an incremental idle game inspired by cookie-clicker mechanics where players gather countries to help consume increasingly massive quantities of sarma. The project features a custom high-performance number system capable of representing extremely large values while remaining efficient and readable across both mobile and desktop platforms.
 
-<iframe width="560" height="315" 
-src="https://youtu.be/VwKqbq2yPcg"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen></iframe>
-
+https://youtu.be/VwKqbq2yPcg
 ## Highlights
 
 - Custom optimized infinite number system designed for incremental games
