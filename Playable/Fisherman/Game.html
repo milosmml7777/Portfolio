@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lane Runner Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #game-container {
+            position: relative;
+        }
+        
+        canvas {
+            border: 2px solid #333;
+            background-color: #fff;
+        }
+        
+        #game-stats {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            z-index: 2000;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat-icon {
+            width: 30px;
+            height: 30px;
+        }
+        
+        #heart-icon {
+            height: 40px; /* Twice the original height */
+            width: 30px;  /* Keep original width */
+        }
+        
+        #game-over, #game-win {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        
+        button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+        <div id="game-stats">
+            <div class="stat-item">
+                <img id="coin-icon" class="stat-icon" src="coin.png" alt="Coins">
+                <span id="coin-count">0</span>
+            </div>
+            <div class="stat-item">
+                <img id="heart-icon" class="stat-icon" src="heart.png" alt="Lives">
+                <span id="life-count">3</span>
+            </div>
+        </div>
+        <div id="game-over">
+            Game Over!
+            <br>
+            <button id="restart-button">Play Again</button>
+        </div>
+        <div id="game-win">
+            <img id="win-image" src="win.png" alt="You Win!" style="width: 100%; height: 100%; cursor: pointer;">
+        </div>
+    </div>
+
+    <script>
+        // Game variables
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const gameStats = document.getElementById('game-stats');
+        const gameOverScreen = document.getElementById('game-over');
+        const gameWinScreen = document.getElementById('game-win');
+        const restartButton = document.getElementById('restart-button');
+        const playAgainButton = document.getElementById('play-again-button');
+        
+        // Load images
+        const images = {};
+        const imageSources = {
+            background: 'background.png',
+            player: 'fisherman.png',
+            playerHit: 'fishermanhit.png',
+            coin: 'coin.png',
+            diamond: 'diamond.png',
+            deadfish: 'deadfish.png',
+            heart: 'heart.png',
+            win: 'win.png',
+            lose: 'lose.png'
+        };
+        
+        // Load audio
+        const audio = {};
+        const audioSources = {
+            background: 'background.wav',
+            coin: 'coin.wav',
+            diamond: 'diamond.wav',
+            movement: 'movement.wav',
+            lose: 'lose.wav',
+            deadfish: 'deadfish.wav',
+            win: 'win.wav'
+        };
+        
+        let audioLoaded = 0;
+        const totalAudio = Object.keys(audioSources).length;
+        
+        function loadAudio(src) {
+            return new Promise((resolve, reject) => {
+                const sound = new Audio();
+                sound.oncanplaythrough = () => resolve(sound);
+                sound.onerror = reject;
+                sound.src = src;
+            });
+        }
+        
+        let imagesLoaded = 0;
+        const totalImages = Object.keys(imageSources).length;
+        
+        function loadImage(src) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+                img.src = src;
+            });
+        }
+        
+        // Game settings
+        const laneCount = 5;
+        const laneWidth = canvas.width / laneCount;
+        const playerSize = 75; // 2.5x larger (30 * 2.5)
+        const objectSize = 50; // 2.5x larger (20 * 2.5)
+        const playerY = canvas.height - playerSize - 10;
+        let playerLane = Math.floor(laneCount / 2);
+        let coins = 0;
+        let lives = 3;
+        let gameRunning = true;
+        let playerHitTimer = 0;
+        
+        // Arrays to store game objects
+        let fallingObjects = [];
+        let floatingTexts = [];
+        let particles = [];
+        
+        // Object types
+        const OBJECT_TYPES = {
+            COIN: { value: 1, color: 'yellow', shape: 'circle' },
+            GEM: { value: 10, color: 'purple', shape: 'diamond' },
+            OBSTACLE: { value: 0, color: 'red', shape: 'x' }
+        };
+        
+        // Initialize the game
+        function init() {
+            coins = 0;
+            lives = 3;
+            fallingObjects = [];
+            playerLane = Math.floor(laneCount / 2);
+            gameRunning = true;
+            gameOverScreen.style.display = 'none';
+            gameWinScreen.style.display = 'none';
+            updateStats();
+        }
+        
+        // Play sound effect
+        function playSound(soundName) {
+            if (audio[soundName]) {
+                // Create a new instance to allow overlapping sounds
+                const sound = audio[soundName].cloneNode();
+                sound.volume = 0.7;
+                sound.play().catch(e => console.log('Sound play blocked:', e));
+            }
+        }
+        
+        // Move player left or right
+        function movePlayer(direction) {
+            if (!gameRunning) return;
+            
+            if (direction === 'left' && playerLane > 0) {
+                playerLane--;
+                playSound('movement');
+            } else if (direction === 'right' && playerLane < laneCount - 1) {
+                playerLane++;
+                playSound('movement');
+            }
+        }
+        
+        // Add a new falling object
+        function addFallingObject() {
+            if (!gameRunning) return;
+            
+            const lane = Math.floor(Math.random() * laneCount);
+            
+            // Use weighted probabilities to make gems rare
+            const rand = Math.random();
+            let type;
+            
+            if (rand < 0.15) {
+                // 15% chance for gems (rare)
+                type = OBJECT_TYPES.GEM;
+            } else if (rand < 0.60) {
+                // 45% chance for coins
+                type = OBJECT_TYPES.COIN;
+            } else {
+                // 40% chance for obstacles
+                type = OBJECT_TYPES.OBSTACLE;
+            }
+            
+            fallingObjects.push({
+                lane: lane,
+                y: -objectSize,
+                type: type,
+                speed: 2 + Math.random() * 2  // Random speed between 2 and 4
+            });
+        }
+        
+        // Create floating text
+        function createFloatingText(text, x, y, color) {
+            floatingTexts.push({
+                text: text,
+                x: x,
+                y: y,
+                alpha: 1.0,
+                life: 120  // 60 frames = 1 second at 60fps
+            });
+        }
+        
+        // Create particle explosion
+        function createParticles(x, y, color, count = 10) {
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: x,
+                    y: y,
+                    vx: (Math.random() - 0.5) * 5,
+                    vy: (Math.random() - 0.5) * 5,
+                    life: 30 + Math.random() * 20,
+                    alpha: 1.0,
+                    color: color
+                });
+            }
+        }
+        
+        // Update all game objects
+        function update() {
+            if (!gameRunning) return;
+            
+            // Update particles
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.life--;
+                p.alpha = p.life / 50; // Fade out
+                
+                if (p.life <= 0) {
+                    particles.splice(i, 1);
+                }
+            }
+            
+            // Update floating texts
+            for (let i = floatingTexts.length - 1; i >= 0; i--) {
+                const textObj = floatingTexts[i];
+                textObj.y -= .5; // Move up
+                textObj.alpha -= .5 / 60; // Fade out over 1 second
+                textObj.life--;
+                
+                if (textObj.life <= 0) {
+                    floatingTexts.splice(i, 1);
+                }
+            }
+            
+            // Update falling objects
+            for (let i = fallingObjects.length - 1; i >= 0; i--) {
+                const obj = fallingObjects[i];
+                obj.y += obj.speed;
+                
+                // Check if object is out of bounds
+                if (obj.y > canvas.height) {
+                    fallingObjects.splice(i, 1);
+                    continue;
+                }
+                
+                // Check collision with player
+                const playerX = playerLane * laneWidth + laneWidth / 2;
+                const objX = obj.lane * laneWidth + laneWidth / 2;
+                
+                const distance = Math.sqrt(
+                    Math.pow(playerX - objX, 2) + 
+                    Math.pow(playerY - obj.y, 2)
+                );
+                
+                if (distance < (playerSize + objectSize) / 2) {
+                    // Collision detected
+                    if (obj.type === OBJECT_TYPES.OBSTACLE) {
+                        lives--;
+                        playerHitTimer = 60; // 1 second at 60fps
+                        // Create particle explosion when hit
+                        createParticles(playerX + playerSize / 2, playerY + playerSize / 2, '#FF0000', 15);
+                        playSound('deadfish');
+                        updateStats();
+                        if (lives <= 0) {
+                            gameOver();
+                        }
+                    } else {
+                        const value = obj.type.value;
+                        coins += value;
+                        updateStats();
+                        if (coins >= 100) {
+                            gameWin();
+                        }
+                        // Play sound based on object type
+                        if (value === 1) {
+                            playSound('coin');
+                        } else if (value === 10) {
+                            playSound('diamond');
+                        }
+                        // Create floating text
+                        createFloatingText(`+${value}`, objX, obj.y, value === 1 ? '#FFD700' : '#FFD700');
+                    }
+                    fallingObjects.splice(i, 1);
+                }
+            }
+            
+            // Randomly add new objects
+            if (Math.random() < 0.02) {  // 2% chance each frame
+                addFallingObject();
+            }
+        }
+        
+        // Draw everything on canvas
+        function draw() {
+            // Draw background
+            if (images.background) {
+                ctx.drawImage(images.background, 0, 0, canvas.width, canvas.height);
+            } else {
+                // Fallback background
+                ctx.fillStyle = '#87CEEB'; // Sky blue
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+            
+            // Draw lanes (faint lines)
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 2;
+            for (let i = 1; i < laneCount; i++) {
+                const x = i * laneWidth;
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+            
+            // Draw player
+            const playerX = playerLane * laneWidth + (laneWidth - playerSize) / 2;
+            
+            if (images.player) {
+                // Draw player with hit animation
+                ctx.save();
+                if (playerHitTimer > 0) {
+                    // Use hit image when player is hit
+                    if (images.playerHit) {
+                        ctx.drawImage(images.playerHit, playerX, playerY, playerSize, playerSize);
+                    } else {
+                        // Fallback to regular player image if hit image not loaded
+                        ctx.drawImage(images.player, playerX, playerY, playerSize, playerSize);
+                    }
+                    playerHitTimer--;
+                } else {
+                    // Use normal player image
+                    ctx.drawImage(images.player, playerX, playerY, playerSize, playerSize);
+                }
+                ctx.restore();
+            } else {
+                // Fallback player
+                ctx.fillStyle = 'blue';
+                ctx.fillRect(playerX, playerY, playerSize, playerSize);
+            }
+            
+            // Draw falling objects
+            for (const obj of fallingObjects) {
+                const objX = obj.lane * laneWidth + (laneWidth - objectSize) / 2;
+                
+                if (obj.type.shape === 'circle' && images.coin) {
+                    // Draw coin image
+                    ctx.drawImage(images.coin, objX, obj.y, objectSize, objectSize);
+                } else if (obj.type.shape === 'diamond' && images.diamond) {
+                    // Draw diamond image
+                    ctx.drawImage(images.diamond, objX, obj.y, objectSize, objectSize);
+                } else if (obj.type.shape === 'x' && images.deadfish) {
+                    // Draw deadfish image
+                    ctx.drawImage(images.deadfish, objX, obj.y, objectSize, objectSize);
+                } else {
+                    // Fallback shapes
+                    ctx.fillStyle = obj.type.color;
+                    if (obj.type.shape === 'circle') {
+                        ctx.beginPath();
+                        ctx.arc(objX + objectSize / 2, obj.y + objectSize / 2, objectSize / 2, 0, Math.PI * 2);
+                        ctx.fill();
+                    } else if (obj.type.shape === 'diamond') {
+                        ctx.beginPath();
+                        ctx.moveTo(objX + objectSize / 2, obj.y);
+                        ctx.lineTo(objX + objectSize, obj.y + objectSize / 2);
+                        ctx.lineTo(objX + objectSize / 2, obj.y + objectSize);
+                        ctx.lineTo(objX, obj.y + objectSize / 2);
+                        ctx.closePath();
+                        ctx.fill();
+                    } else if (obj.type.shape === 'x') {
+                        ctx.lineWidth = 3;
+                        ctx.strokeStyle = obj.type.color;
+                        const size = objectSize / 2;
+                        ctx.beginPath();
+                        ctx.moveTo(objX, obj.y);
+                        ctx.lineTo(objX + objectSize, obj.y + objectSize);
+                        ctx.moveTo(objX + objectSize, obj.y);
+                        ctx.lineTo(objX, obj.y + objectSize);
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            // Draw particles
+            for (const p of particles) {
+                ctx.save();
+                ctx.globalAlpha = p.alpha;
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+            
+            // Draw floating texts
+            for (const textObj of floatingTexts) {
+                ctx.save();
+                ctx.globalAlpha = textObj.alpha;
+                ctx.fillStyle = '#FFD700'; // Gold color
+                ctx.font = 'bold 20px Arial';
+                ctx.textAlign = 'center';
+                ctx.shadowColor = 'black';
+                ctx.shadowBlur = 2;
+                ctx.fillText(textObj.text, textObj.x, textObj.y);
+                ctx.restore();
+            }
+        }
+        
+        // Game loop
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+        
+        // Update statistics display
+        function updateStats() {
+            const coinCount = document.getElementById('coin-count');
+            const lifeCount = document.getElementById('life-count');
+            
+            if (coinCount) coinCount.innerText = coins;
+            if (lifeCount) lifeCount.innerText = lives;
+        }
+        
+        // Game over
+        function gameOver() {
+            gameRunning = false;
+            playSound('lose');
+            // Replace background with lose.png
+            if (images.lose) {
+                // Create a full-screen lose background
+                const loseBackground = document.createElement('div');
+                loseBackground.id = 'lose-background';
+                loseBackground.style.position = 'absolute';
+                loseBackground.style.top = '0';
+                loseBackground.style.left = '0';
+                loseBackground.style.width = '100%';
+                loseBackground.style.height = '100%';
+                loseBackground.style.backgroundImage = 'url(lose.png)';
+                loseBackground.style.backgroundSize = 'cover';
+                loseBackground.style.backgroundPosition = 'center';
+                loseBackground.style.cursor = 'pointer';
+                loseBackground.style.zIndex = '1000';
+                
+                // Add click event to restart game
+                loseBackground.addEventListener('click', () => {
+                    // Remove lose background
+                    loseBackground.remove();
+                    init();
+                });
+                
+                // Add lose background to game container
+                document.getElementById('game-container').appendChild(loseBackground);
+            } else {
+                // Fallback to original game over screen if image fails to load
+                gameOverScreen.style.display = 'block';
+            }
+        }
+        
+        // Game win
+        function gameWin() {
+            gameRunning = false;
+            playSound('win');
+            // Replace background with win.png
+            if (images.win) {
+                // Create a full-screen win background
+                const winBackground = document.createElement('div');
+                winBackground.id = 'win-background';
+                winBackground.style.position = 'absolute';
+                winBackground.style.top = '0';
+                winBackground.style.left = '0';
+                winBackground.style.width = '100%';
+                winBackground.style.height = '100%';
+                winBackground.style.backgroundImage = 'url(win.png)';
+                winBackground.style.backgroundSize = 'cover';
+                winBackground.style.backgroundPosition = 'center';
+                winBackground.style.cursor = 'pointer';
+                winBackground.style.zIndex = '1000';
+                
+                // Add click event to restart game
+                winBackground.addEventListener('click', () => {
+                    // Remove win background
+                    winBackground.remove();
+                    init();
+                });
+                
+                // Add win background to game container
+                document.getElementById('game-container').appendChild(winBackground);
+            } else {
+                // Fallback to original win screen if image fails to load
+                gameWinScreen.style.display = 'block';
+            }
+        }
+        
+        // Event listeners
+        document.addEventListener('keydown', (e) => {
+            // Arrow keys
+            if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+                movePlayer('left');
+            } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+                movePlayer('right');
+            }
+        });
+        
+        restartButton.addEventListener('click', init);
+        
+        // Add click event to win image to restart game
+        const winImage = document.getElementById('win-image');
+        if (winImage) {
+            winImage.addEventListener('click', init);
+        }
+        
+        // Initialize images and audio
+        async function initAssets() {
+            try {
+                // Load images
+                for (const [key, src] of Object.entries(imageSources)) {
+                    images[key] = await loadImage(src);
+                    imagesLoaded++;
+                }
+                
+                // Load audio
+                for (const [key, src] of Object.entries(audioSources)) {
+                    audio[key] = await loadAudio(src);
+                    audioLoaded++;
+                }
+                
+                // Start background music
+                if (audio.background) {
+                    audio.background.loop = true;
+                    audio.background.volume = 0.5;
+                    audio.background.play().catch(e => console.log('Audio autoplay blocked:', e));
+                }
+                
+                init();
+                gameLoop();
+            } catch (error) {
+                console.error('Error loading assets:', error);
+                // Fallback to original game if assets fail to load
+                init();
+                gameLoop();
+            }
+        }
+        
+        // Start the game
+        initAssets();
+    </script>
+</body>
+</html>

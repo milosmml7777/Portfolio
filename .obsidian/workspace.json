@@ -1,0 +1,213 @@
+{
+  "main": {
+    "id": "a21883957749cc03",
+    "type": "split",
+    "children": [
+      {
+        "id": "9afdf9ad127ba11d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b9d427e6d49c8e97",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Web Dev.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Web Dev"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "520d7215164fe313",
+    "type": "split",
+    "children": [
+      {
+        "id": "25d94e1b0aa5bd45",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d3e23a5168bb3d6b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "548ac2215657758e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "ce442f725bc0b251",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "3fa4e7be49d43206",
+    "type": "split",
+    "children": [
+      {
+        "id": "96a7fe2b7e436532",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "81e8774e4daa97f8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Web Dev.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Web Dev"
+            }
+          },
+          {
+            "id": "58de0ad1c0101a1c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Web Dev.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Web Dev"
+            }
+          },
+          {
+            "id": "c3394b6590f52fae",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "07e6a8edbac64ea4",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "520fda91173f6a9f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Web Dev.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Web Dev"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "b9d427e6d49c8e97",
+  "lastOpenFiles": [
+    "Playable/Fisherman/Source Folder/win.wav",
+    "Playable/Fisherman/Source Folder/win.png",
+    "Playable/Fisherman/Source Folder/movement.wav",
+    "Playable/Fisherman/Source Folder/lose.wav",
+    "Playable/Fisherman/Source Folder/lose.png",
+    "Playable/Fisherman/Source Folder/fishermanhit.png",
+    "Playable/Fisherman/Source Folder/heart.png",
+    "Playable/Fisherman/Source Folder/fisherman.png",
+    "Playable/Fisherman/Source Folder/diamond.wav",
+    "Playable/Fisherman/Source Folder/diamond.png",
+    "Playable/Fisherman/Source Folder/deadfish.wav",
+    "Playable/Fisherman/Source Folder/coin.wav",
+    "Playable/Fisherman/Source Folder/deadfish.png",
+    "Playable/Fisherman/Source Folder/coin.png",
+    "Playable/Fisherman/Source Folder/background.wav",
+    "Playable/Fisherman/Source Folder/background.png",
+    "Playable/Fisherman/win.wav",
+    "Playable/Fisherman/Source Folder",
+    "Playable/Fisherman/win.png",
+    "Playable/Fisherman/lose.wav",
+    "Playable/Fisherman/Source Folder.zip",
+    "Unity.md",
+    "Web Dev.md",
+    "Untitled.md"
+  ]
+}
