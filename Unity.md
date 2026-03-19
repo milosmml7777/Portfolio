@@ -88,7 +88,7 @@ Several performance techniques were implemented to maintain smooth gameplay:
 - Dynamic lighting effects including lanterns and fireplaces with variable intensity and size
 - Parallax background system creating visual depth
 
-[![Watch Gameplay](Images/Ninja/ninjaShrine.png)]((https://www.youtube.com/watch?v=VLfgaBXhuSA)
+[![Watch Gameplay](Images/Ninja/ninjaShrine.png)](https://www.youtube.com/watch?v=VLfgaBXhuSA)
 
 ---
 
