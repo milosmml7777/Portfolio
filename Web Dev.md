@@ -20,7 +20,7 @@ The following elements were planned before building the layout:
 - Product card structure
 - Button styles and interaction states
 - Typography hierarchy
-![[Pasted image 20260319004853.png]]
+![[Images/web/Text.png]]
 
 This preparation helped maintain a consistent visual language across the entire interface.
 
@@ -46,7 +46,7 @@ Key design goals included:
 
 ## Color Palette
 
-![[Pasted image 20260319004658.png]]
+![[Images/Web/ColorPalette.png]]
 
 The interface uses **two primary colors**:
 

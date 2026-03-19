@@ -325,7 +325,7 @@ The city environment features randomized layout variations during runs to mainta
 
 Sarma Clicker is an incremental idle game inspired by cookie-clicker mechanics where players gather countries to help consume increasingly massive quantities of sarma. The project features a custom high-performance number system capable of representing extremely large values while remaining efficient and readable across both mobile and desktop platforms.
 
-https://youtu.be/VwKqbq2yPcg
+[![Watch Gameplay](Images/Sarma.png)](https://youtu.be/VwKqbq2yPcg)
 ## Highlights
 
 - Custom optimized infinite number system designed for incremental games

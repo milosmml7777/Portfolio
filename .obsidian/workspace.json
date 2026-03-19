@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 356.5
   },
   "right": {
     "id": "3fa4e7be49d43206",
@@ -185,19 +185,20 @@
   },
   "active": "ff5679953506eccf",
   "lastOpenFiles": [
+    "Images/Sarma.png",
+    "Web Dev.md",
+    "Unity.md",
     "Images/METiGO/METiSkin.png",
     "Images/METiGO/METiFly.png",
     "Images/METiGO",
     "Images/METiGO/METiO.png",
     "README.md",
-    "Unity.md",
     "Ninja Combat Prototype.md",
     "METi GO.md",
     "Images/Sheep/sheepShave.png",
     "Images/Sheep/sheepO.png",
     "Images/Sheep",
     "Images/Sheep.md",
-    "Web Dev.md",
     "Images/Ninja/ninjaShrine.png",
     "Images/Ninja/ninjaVariant.png",
     "Images/Ninja/ninjaElite.png",
@@ -207,7 +208,6 @@
     "Images/Ninja.md",
     "Images/Web/coin.png",
     "Playable/Fisherman/Source Folder/win.wav",
-    "Playable/Fisherman/Source Folder/win.png",
     "Playable/Fisherman/Source Folder/movement.wav",
     "Playable/Fisherman/Source Folder/lose.wav",
     "Playable/Fisherman/Source Folder/diamond.wav",
