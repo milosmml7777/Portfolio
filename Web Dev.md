@@ -208,7 +208,7 @@ Fisherman Lane Runner is a browser-based arcade game built using HTML, CSS, and 
 - Audio system with multiple sound effects
 - Asset loading system for images and audio
 - Game state management including win and lose conditions
-![[fisherman.png]]
+![](Images/Web/fisherman.png)
 ---
 
 # Tech Stack
@@ -229,7 +229,7 @@ Rendering
 Audio
 
 - Web Audio / HTML Audio API
-![[fishermanhit.png]]
+![](Images/Web/fishermanhit.png)
 ---
 
 # Core Systems
@@ -241,15 +241,15 @@ All game visuals are rendered using the HTML5 Canvas API, including the player c
 ## Lane Movement System
 
 The player moves between predefined lanes using keyboard input. This creates a simple but responsive movement system commonly used in arcade runner games.
-![[deadfish.png]]
+![](Images/Web/deadfish.png)
 ## Object Spawning System
 
 Objects spawn randomly with weighted probabilities, creating varied gameplay where coins, gems, and obstacles appear at different rates.
-![[heart.png]]
+![](Images/Web/heart.png)
 ## Collision Detection
 
 Collision detection is implemented using distance-based calculations between the player and falling objects.
-![[coin.png]]
+![](Images/Web/coin.png)
 ## Particle Effects
 
 A simple particle system was implemented to create visual feedback when the player is hit or collects items.
@@ -261,7 +261,7 @@ When collecting items, floating text appears showing the score gained, adding vi
 ## Audio System
 
 Sound effects and background music are implemented using the browser Audio API, with support for overlapping sounds during gameplay events.
-![[lose.png]]
+![](Images/Web/lose.png)
 ## Asset Loading
 
 Images and audio assets are loaded asynchronously before the game starts to ensure all resources are available when gameplay begins.
@@ -276,7 +276,7 @@ Players must:
 - Avoid obstacles such as dead fish
 - Maintain remaining lives while increasing score
 - Reach a target score to win the game
-![[win.png]]
+![](Images/Web/win.png)
 ---
 
 # What This Project Demonstrates
@@ -289,4 +289,4 @@ This project demonstrates:
 - Particle effect implementation
 - Asset management and loading
 - Interactive browser-based gameplay systems
-![[diamond.png]]
+![](Images/Web/diamond.png)
