@@ -211,7 +211,7 @@ Integrated in-game advertisements into the gameplay loop.
 
 METi GO is an endless runner built in Unity where players guide METi through a procedurally varied city while avoiding obstacles, collecting coins, and unlocking cosmetics. The game features platform leaderboards, seasonal content, achievement-based progression, and multiple gameplay systems designed to maintain replayability.
 
-[![Watch Gameplay](Images/METiGO/METiO.png)]((https://www.youtube.com/watch?v=5BqLuG9rP6Q)
+[![Watch Gameplay](Images/METiGO/METiO.png)](https://www.youtube.com/watch?v=5BqLuG9rP6Q)
 ## Highlights
 
 - Endless runner gameplay with obstacle avoidance and coin collection
