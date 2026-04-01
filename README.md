@@ -4,10 +4,18 @@
 
 - Unity Engine
 - C#
+- Git
 - Unity Input System
 - Unity Tilemap Editor
+- Addressables
+- ScriptableObjects
 - Shader Graph
 - Unity Particle System
+- Animation / Animator
+- uGUI
+- Cinemachine
+- Unity Profiler
+- Object Pooling
 - Post Processing
 
 **Web Development**
