@@ -768,6 +768,7 @@ This project demonstrates:
 # TaskFlow - Task Management App
 
 ![](Images/TaskManagement.png)
+
 **Code:** [GitHub Repository](https://github.com/milosmml7777/TaskManagementApp)
 
 TaskFlow is a task management project built in two parallel versions: a web app made with React, TypeScript, and Vite, and a mobile app made with React Native and Expo. The project focuses on practical productivity features such as task creation, filtering, progress tracking, due date management, category organization, and simple productivity statistics, while keeping the experience adapted to each platform.
