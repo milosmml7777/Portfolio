@@ -16,6 +16,7 @@
 - Cinemachine
 - Unity Profiler
 - Object Pooling
+- GPU Instancing
 - Post Processing
 
 **Web Development**
