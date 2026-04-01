@@ -1,3 +1,50 @@
+## Full Tech Stack Overview
+
+**Game Development**
+
+- Unity Engine
+- C#
+- Unity Input System
+- Unity Tilemap Editor
+- Shader Graph
+- Unity Particle System
+- Post Processing
+
+**Web Development**
+
+- HTML
+- CSS
+- JavaScript
+- TypeScript
+- React
+- React DOM
+- Vite
+- React Router
+- HTML5 Canvas API
+
+**Mobile Development**
+
+- React Native
+- Expo
+- AsyncStorage
+- `@react-native-community/datetimepicker`
+
+**Backend, Platform, and Services**
+
+- PlayFab
+- Google Play Games Services
+- Apple Game Center
+- Browser Local Storage
+
+**Design and UI/UX**
+
+- Figma
+- Adobe Color
+- Component-based UI design
+- Grid-based layout systems
+
+---
+
 # - Unity -
 # **Ninja Combat Prototype**
 
@@ -715,3 +762,93 @@ This project demonstrates:
 - Asset management and loading
 - Interactive browser-based gameplay systems
 ![](Images/Web/diamond.png)
+
+---
+
+# TaskFlow - Task Management App
+
+![](Images/TaskManagement.png)
+**Code:** [GitHub Repository](https://github.com/milosmml7777/TaskManagementApp)
+
+TaskFlow is a task management project built in two parallel versions: a web app made with React, TypeScript, and Vite, and a mobile app made with React Native and Expo. The project focuses on practical productivity features such as task creation, filtering, progress tracking, due date management, category organization, and simple productivity statistics, while keeping the experience adapted to each platform.
+
+The web and mobile versions share the same core product idea, but each implementation is tailored to its environment, with browser-based local storage on web and AsyncStorage persistence on mobile.
+
+---
+
+# Highlights
+
+- Cross-platform task management product built for both web and mobile
+- Task creation, editing, categorization, and progress tracking
+- Search, filtering, sorting, and bulk delete workflow on web
+- Task statistics including completion progress and category distribution
+- Light and dark theme support across platforms
+- Local persistence using browser storage and AsyncStorage
+- Native date picker integration in the mobile app
+
+---
+
+# Tech Stack
+
+**Web**
+
+- React 19
+- TypeScript
+- Vite
+- React Router DOM
+- Browser Local Storage
+
+**Mobile**
+
+- React Native
+- Expo
+- TypeScript
+- AsyncStorage
+- `@react-native-community/datetimepicker`
+
+**Tooling**
+
+- ESLint
+- TypeScript compiler
+
+---
+
+# Core Systems
+
+## Task Management Workflow
+
+Users can create tasks, edit existing entries, assign categories, define due dates, update progress, and review individual task details through a structured productivity flow.
+
+## Search, Filtering, and Sorting
+
+The web version includes task discovery tools such as search, filtering, sorting, and bulk deletion, making it easier to manage larger task lists efficiently.
+
+## Statistics Dashboard
+
+A dedicated stats view presents completion progress and category distribution, giving users a lightweight overview of productivity trends.
+
+## Cross-Platform Persistence
+
+The project stores task data locally on each platform:
+
+- Web uses browser local storage
+- Mobile uses AsyncStorage
+
+This keeps the app fast and simple while preserving user data between sessions.
+
+## Mobile-First Native Features
+
+The Expo version adapts the same task workflow to mobile with native-friendly forms, touch interactions, and a native date picker for due date selection.
+
+---
+
+# What This Project Demonstrates
+
+This project demonstrates:
+
+- Building the same product concept across web and mobile platforms
+- React and React Native application architecture
+- TypeScript-based frontend development
+- Client-side state and persistence design
+- Productivity dashboard and task workflow implementation
+- Platform-specific UI adaptation while preserving shared product goals
