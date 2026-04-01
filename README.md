@@ -5,18 +5,37 @@
 - Unity Engine
 - C#
 - Git
+- Version Control
 - Unity Input System
 - Unity Tilemap Editor
+- URP
+- HDRP
 - Addressables
+- Asset Bundles
 - ScriptableObjects
+- Timeline
 - Shader Graph
+- HLSL
 - Unity Particle System
 - Animation / Animator
+- Blend Trees
+- State Machines
+- UI Toolkit
 - uGUI
 - Cinemachine
+- NavMesh
+- Coroutines / Async workflows
+- Serialization / Save Systems
+- Localization
+- Physics
 - Unity Profiler
+- Frame Debugger
+- Memory Profiler
 - Object Pooling
 - GPU Instancing
+- Mobile Optimization
+- Build Pipeline / Platform Deployment
+- PlayFab
 - Post Processing
 
 **Web Development**
